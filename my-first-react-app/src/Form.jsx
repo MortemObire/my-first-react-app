@@ -1,21 +1,41 @@
-function Form(){
+function Form() {
     return (
-        <form action="">
+        <form onSubmit={(e) => e.preventDefault()}>
+            <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+            />
+            <div className="task-entry">
+                <input
+                    type="text"
+                    id="text1"
+                    placeholder="Add a new task..."
+                />
 
-            <input type="text" />
-            <input type="Button" id="Add"/>
-            <br />
-            <label htmlFor="All">All tasks</label>
-            <input type="radio" id="All"/>
-            <label htmlFor="Act">Active</label>
-            <input type="radio" id="Act"/>
-            <label htmlFor="Com">Completed</label>
-            <input type="radio" id="Com"/>
-            <br />
-            <input type="checkbox" />
-            <br />
+                <button type="button" id="Add" aria-label="Add task">
+                    <i className="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div className="task-filters">
+                <input type="radio" name="filter" id="All" defaultChecked />
+                <label htmlFor="All">All tasks</label>
+
+                <input type="radio" name="filter" id="Act" />
+                <label htmlFor="Act">Active</label>
+
+                <input type="radio" name="filter" id="Com" />
+                <label htmlFor="Com">Completed</label>
+            </div>
+
+            <div className="task-list">
+                <label className="task-item">
+                    <input type="checkbox" />
+                    <span>Your first task will appear here</span>
+                </label>
+            </div>
         </form>
     );
 }
 
-export default Form
+export default Form;
